@@ -21,6 +21,8 @@ gem "meta_search", '>= 1.1.0.pre'
 
 # Devise
 gem 'devise'
+gem 'simple_form'
+gem 'country_select'
 
 # Gems used only for assets and not required
 # in production environments by default.

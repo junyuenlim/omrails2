@@ -2,7 +2,7 @@ ActiveadminTest::Application.routes.draw do
 
   root :to => 'pages#index'
 
-  get "pages/about"
+  get "about" => "pages#about"
 
   ActiveAdmin.routes(self)
   
