@@ -12,6 +12,7 @@ ActiveadminTest::Application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
+  match 'users/:id' => 'users#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
