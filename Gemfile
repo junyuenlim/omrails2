@@ -26,7 +26,6 @@ gem 'country_select'
 
 # Paperclip
 gem "paperclip", "~> 3.0"
-gem 'rmagick'
 
 # Gems used only for assets and not required
 # in production environments by default.
