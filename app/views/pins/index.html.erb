@@ -1,5 +1,5 @@
 <%= render 'pages/index' %>
 
 <div id="pins">
-  <%= render @pins %>
+  <%= render @pins.where("location = 'Jakarta'") %>
 </div>

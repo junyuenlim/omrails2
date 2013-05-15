@@ -1,6 +1,7 @@
 <div class="box">
 	<%= link_to (image_tag pin.image), pin %>
 	<p class="description"><%= pin.description %></p>
+	<p class="description"><%= pin.location %></p>
 	<strong>Posted by <%= pin.user.first_name %> <%= pin.user.last_name %></strong>
 	<% if current_user == pin.user %>
 	<p>
