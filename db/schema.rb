@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515075601) do
+ActiveRecord::Schema.define(:version => 20130516172411) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(:version => 20130515075601) do
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
+  create_table "comments", :force => true do |t|
+    t.string   "commenter"
+    t.text     "body"
+    t.integer  "pin_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "comments", ["pin_id"], :name => "index_comments_on_pin_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
   create_table "pins", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",         :null => false
@@ -41,6 +53,17 @@ ActiveRecord::Schema.define(:version => 20130515075601) do
   end
 
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
+
+  create_table "reviews", :force => true do |t|
+    t.text     "body"
+    t.integer  "pin_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
+  add_index "reviews", ["pin_id"], :name => "index_reviews_on_pin_id"
+  add_index "reviews", ["user_id"], :name => "index_reviews_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

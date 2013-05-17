@@ -19,6 +19,35 @@
 		<%= link_to 'Edit', edit_pin_path(@pin) %> |
 		<% end %>
 		<%= link_to 'Back', pins_path %>
+
+		<h4>Comments</h4>
+		<% @pin.comments.each do |comment| %>
+		  <p>
+		    <b>Commenter:</b>
+		    <%= comment.commenter %>
+		  </p>
+		 
+		  <p>
+		    <b>Comment:</b>
+		    <%= comment.body %>
+		  </p>
+		<% end %>
+
+		<h4>Add a comment:</h4>
+		<%= form_for([@pin, @pin.comments.build]) do |f| %>
+		  <div class="field">
+		    <%= current_user.first_name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :body %><br />
+		    <%= f.text_area :body %>
+		  </div>
+		  <div class="actions">
+		    <%= f.submit %>
+		  </div>
+		<% end %>
+
+
 	</div>
 </div>
 
